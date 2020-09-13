@@ -33,6 +33,8 @@ See something incorrectly described, buggy or outright wrong? Open an issue or s
     * [Check if string ends with sub-string](#check-if-string-ends-with-sub-string)
     * [Split a string on a delimiter](#split-a-string-on-a-delimiter)
     * [Trim quotes from a string](#trim-quotes-from-a-string)
+* [STREAMS](#streams)
+    * [Trim leading white-space from each line](#trim-leading-white-space-from-each-line)
 * [FILES](#files)
     * [Parsing a `key=val` file.](#parsing-a-keyval-file)
     * [Get the first N lines of a file](#get-the-first-n-lines-of-a-file)
@@ -366,6 +368,18 @@ trim_quotes() {
 $ var="'Hello', \"World\""
 $ trim_quotes "$var"
 Hello, World
+```
+
+# STREAMS
+
+## Trim leading white-space from each line
+
+Alternative to `sed 's/^\s*/'`.
+
+```shell
+while IFS='	 ' read -r line; do
+    printf '%s\n' "$line"
+done
 ```
 
 # FILES
